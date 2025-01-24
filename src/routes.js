@@ -36,10 +36,9 @@ Coded by www.creative-tim.com
 */
 
 // Material Dashboard 2 React layouts
-import Dashboard from "layouts/dashboard";
+import FinancialOverview from "layouts/dashboard";
 import Tables from "layouts/tables";
-import Billing from "layouts/billing";
-import RTL from "layouts/rtl";
+import Customer from "layouts/billing";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
@@ -51,46 +50,6 @@ import Icon from "@mui/material/Icon";
 const routes = [
   {
     type: "collapse",
-    name: "Dashboard",
-    key: "dashboard",
-    icon: <Icon fontSize="small">dashboard</Icon>,
-    route: "/dashboard",
-    component: <Dashboard />,
-  },
-  {
-    type: "collapse",
-    name: "Tables",
-    key: "tables",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
-    component: <Tables />,
-  },
-  {
-    type: "collapse",
-    name: "Billing",
-    key: "billing",
-    icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
-    component: <Billing />,
-  },
-  {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
-  },
-  {
-    type: "collapse",
-    name: "Notifications",
-    key: "notifications",
-    icon: <Icon fontSize="small">notifications</Icon>,
-    route: "/notifications",
-    component: <Notifications />,
-  },
-  {
-    type: "collapse",
     name: "Profile",
     key: "profile",
     icon: <Icon fontSize="small">person</Icon>,
@@ -99,19 +58,100 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    icon: <Icon fontSize="small">login</Icon>,
-    route: "/authentication/sign-in",
-    component: <SignIn />,
+    name: "Financial Overview",
+    key: "financial-overview",
+    icon: <Icon fontSize="small">account_balance</Icon>,
+    route: "/financial-overview",
+    component: <FinancialOverview />,
   },
   {
     type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
-    component: <SignUp />,
+    name: "Customer",
+    key: "customer",
+    icon: <Icon fontSize="small">group</Icon>,
+    route: "/customer",
+    component: <Customer />,
+  },
+
+  {
+    type: "collapse",
+    name: "Sales",
+    key: "sales",
+    icon: <Icon fontSize="small">shopping_cart</Icon>,
+    route: "/sales",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Employee",
+    key: "employee",
+    icon: <Icon fontSize="small">badge</Icon>,
+    route: "/employee",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Product Development",
+    key: "product-development",
+    icon: <Icon fontSize="small">build</Icon>,
+    route: "/product-development",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "IT Infrastructure",
+    key: "it-infrastructure",
+    icon: <Icon fontSize="small">computer</Icon>,
+    route: "/it-infrastructure",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "R&D Innovation",
+    key: "rd-innovation",
+    icon: <Icon fontSize="small">lightbulb</Icon>,
+    route: "/rd-innovation",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Market Analysis",
+    key: "market-analysis",
+    icon: <Icon fontSize="small">bar_chart</Icon>,
+    route: "/market-analysis",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Digital Transformation",
+    key: "digital-transformation",
+    icon: <Icon fontSize="small">transform</Icon>,
+    route: "/digital-transformation",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Diversity and Inclusion",
+    key: "diversity-inclusion",
+    icon: <Icon fontSize="small">diversity_3</Icon>,
+    route: "/diversity-inclusion",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Security",
+    key: "security",
+    icon: <Icon fontSize="small">security</Icon>,
+    route: "/security",
+    component: <FinancialOverview />,
+  },
+  {
+    type: "collapse",
+    name: "Operational Efficiency",
+    key: "operational-efficiency",
+    icon: <Icon fontSize="small">speed</Icon>,
+    route: "/operational-efficiency",
+    component: <FinancialOverview />,
   },
 ];
 

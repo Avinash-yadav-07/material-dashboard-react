@@ -32,7 +32,7 @@ import Invoices from "layouts/billing/components/Invoices";
 import BillingInformation from "layouts/billing/components/BillingInformation";
 import Transactions from "layouts/billing/components/Transactions";
 
-function Billing() {
+function Customer() {
   return (
     <DashboardLayout>
       <DashboardNavbar absolute isMini />
@@ -86,4 +86,4 @@ function Billing() {
   );
 }
 
-export default Billing;
+export default Customer;
