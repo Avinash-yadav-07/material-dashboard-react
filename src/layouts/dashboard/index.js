@@ -3,6 +3,11 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Icon from "@mui/material/Icon";
 import { styled } from "@mui/material/styles";
+import TeamExpenseDashboard from "./TeamExpenseDashboard"; // Import the TeamExpenseDashboard component
+import RevenueDashboard from "./RevenueDashboard"; // Import the new dashboard component
+import CostManagementDashboard from "./CostManagementDashboard"; // Import the new dashboard
+import FinancialDashboard from "./FinancialDashboard"; // Import the new dashboard
+import KPIDashboard from "./KPIDashboard"; // Import the new dashboard
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -42,7 +47,7 @@ function FinancialOverview() {
             <MDBox mb={1.5} display="flex" justifyContent="center">
               <StyledButton
                 variant="contained"
-                color="primary"
+                color="success"
                 startIcon={<Icon>account_balance_wallet</Icon>}
                 onClick={() => handleClick("teamExpense")}
                 isClicked={clickedButton === "teamExpense"}
@@ -105,6 +110,12 @@ function FinancialOverview() {
           </Grid>
         </Grid>
       </MDBox>
+      {/* Conditionally render TeamExpenseDashboard when the button is clicked */}
+      {clickedButton === "teamExpense" && <TeamExpenseDashboard />}
+      {clickedButton === "revenue" && <RevenueDashboard />}
+      {clickedButton === "costManagement" && <CostManagementDashboard />}
+      {clickedButton === "financialHealth" && <FinancialDashboard />}
+      {clickedButton === "teamPerformance" && <KPIDashboard />}
       <Footer />
     </DashboardLayout>
   );
