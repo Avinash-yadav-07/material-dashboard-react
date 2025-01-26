@@ -1,8 +1,8 @@
 import React from "react";
-import { Grid, Card, Typography } from "@mui/material";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, Cell } from "recharts"; // For the stacked bar chart
+import { Grid, Card, Typography, Box } from "@mui/material";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from "recharts";
 import { ResponsiveContainer } from "recharts";
-import { Tree, TreeNode } from "react-organizational-chart"; // For the tree-map visualization
+import { Tree, TreeNode } from "react-organizational-chart";
 
 const CostManagementDashboard = () => {
   // Example data for fixed vs. variable costs (replace with actual data)
@@ -21,71 +21,87 @@ const CostManagementDashboard = () => {
   ];
 
   return (
-    <div>
+    <Box sx={{ padding: "16px" }}>
       <Typography variant="h4" gutterBottom>
         Cost Management Dashboard
       </Typography>
 
-      {/* Stacked Bar Chart for Fixed vs. Variable Costs */}
-      <Card>
-        <Typography variant="h6" gutterBottom>
-          Fixed vs. Variable Costs by Team
-        </Typography>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={costData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="team" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="fixed" stackId="a" fill="#8884d8" />
-            <Bar dataKey="variable" stackId="a" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
-      </Card>
-
-      {/* Tree-map for Cost Category Distribution */}
-      <Card>
-        <Typography variant="h6" gutterBottom>
-          Cost Category Distribution
-        </Typography>
-        <div style={{ height: 300, width: "100%" }}>
-          <Tree label={<div>Cost Categories</div>}>
-            {treeData.map((item, index) => (
-              <TreeNode key={index} label={`${item.name}: $${item.cost}`} />
-            ))}
-          </Tree>
-        </div>
-      </Card>
-
-      {/* Metrics */}
+      {/* Grid for Layout */}
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Card>
-            <Typography variant="h6">Fixed Costs per Team</Typography>
-            <ul>
-              {costData.map((item, index) => (
-                <li key={index}>
-                  {item.team}: ${item.fixed}
-                </li>
-              ))}
-            </ul>
+        {/* Stacked Bar Chart */}
+        <Grid item xs={12} md={8}>
+          <Card sx={{ padding: "16px", height: "100%" }}>
+            <Typography variant="h6" gutterBottom>
+              Fixed vs. Variable Costs by Team
+            </Typography>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={costData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="team" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="fixed" stackId="a" fill="#8884d8" />
+                <Bar dataKey="variable" stackId="a" fill="#82ca9d" />
+              </BarChart>
+            </ResponsiveContainer>
           </Card>
         </Grid>
-        <Grid item xs={6}>
-          <Card>
-            <Typography variant="h6">Variable Costs per Team</Typography>
-            <ul>
-              {costData.map((item, index) => (
-                <li key={index}>
-                  {item.team}: ${item.variable}
-                </li>
-              ))}
-            </ul>
+
+        {/* Tree-map Visualization */}
+        <Grid item xs={12} md={4}>
+          <Card sx={{ padding: "16px", height: "100%" }}>
+            <Typography variant="h6" gutterBottom>
+              Cost Category Distribution
+            </Typography>
+            <div style={{ overflow: "auto", height: 300 }}>
+              <Tree label={<div style={{ fontWeight: "bold" }}>Cost Categories</div>}>
+                {treeData.map((item, index) => (
+                  <TreeNode key={index} label={`${item.name}: $${item.cost}`} />
+                ))}
+              </Tree>
+            </div>
           </Card>
+        </Grid>
+
+        {/* Metrics Section */}
+        <Grid item xs={12}>
+          <Grid container spacing={3}>
+            {/* Fixed Costs */}
+            <Grid item xs={12} md={6}>
+              <Card sx={{ padding: "16px" }}>
+                <Typography variant="h6" gutterBottom>
+                  Fixed Costs per Team
+                </Typography>
+                <ul style={{ margin: 0, padding: "0 16px" }}>
+                  {costData.map((item, index) => (
+                    <li key={index}>
+                      {item.team}: ${item.fixed}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </Grid>
+
+            {/* Variable Costs */}
+            <Grid item xs={12} md={6}>
+              <Card sx={{ padding: "16px" }}>
+                <Typography variant="h6" gutterBottom>
+                  Variable Costs per Team
+                </Typography>
+                <ul style={{ margin: 0, padding: "0 16px" }}>
+                  {costData.map((item, index) => (
+                    <li key={index}>
+                      {item.team}: ${item.variable}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
